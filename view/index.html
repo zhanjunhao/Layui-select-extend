@@ -640,11 +640,6 @@
             // 使用form模块组件
             layui.use('form', function(){
                 var form = layui.form;
-                
-                // $(document.body).append('<iframe src="http://10.2.4.156:8081/Layui-select-extend/view/" width="100%" height="100%" noborder="0"></iframe>')
-
-                //0 为测试站 1为正式站 by：仅为测试
-                //var runtime = (state)=> state === 0 ? 'http://test.admin.jekunauto.com/' : 'http://jkadmin.jekunauto.com/';
 
                 // 监听select选择
                 form.on('select(filter)', function(data){
@@ -655,8 +650,6 @@
                         console.log('this value is null');
                         return false;
                     }else{
-                        // console.log(runtime(0));
-                        // window.location.href = runtime(0) + data.value;
                         window.location.href = data.value;
                     }
                 });
