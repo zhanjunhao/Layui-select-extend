@@ -37,11 +37,12 @@ layui的select组件自带搜索功能，只要在select标签里面添加属性
 ## 一、引进插件
 首先我们要先引进一个pinyin.js文件，它是一个将汉字转换为拼音的JavaScript插件，并且支持多音字，直接使用ConvertPinyin(text)获取。http://www.uedsc.com/pinyin-js.html 这个网址是这个插件的介绍。 
 还要引进一个initials.js文件，它是提取汉字首字母的，返回的是一个大写字母字符串组成的数组，当然这个数组只有一个元素。获取时应正确使用：makePy(text)[0]。 
-为了方便，以上两个已上传到我的码云和github，CSDN资源库也有，可前往下载：<br> 
-码云：https://gitee.com/onionoo/pinyin.js 
-github：https://github.com/onionooO/ChineseToPinyinAndInitials 
-CSDN资源：全拼：https://download.csdn.net/download/sinat_39571186/10417956 
-首字母：https://download.csdn.net/download/sinat_39571186/10417947
+为了方便，以上两个已上传到我的码云和github，CSDN资源库也有，可前往下载：
+
+<div>码云：<a href="https://gitee.com/onionoo/pinyin.js" target="_blank">https://gitee.com/onionoo/pinyin.js</a></div>
+<div>github：<a href="https://github.com/onionooO/ChineseToPinyinAndInitials" target="_blank">https://github.com/onionooO/ChineseToPinyinAndInitials</a></div>
+<div>CSDN资源：<a href="https://download.csdn.net/download/sinat_39571186/10417956" target="_blank">https://download.csdn.net/download/sinat_39571186/10417956</a></div>
+<div>首字母：<a href="https://download.csdn.net/download/sinat_39571186/10417947" target="_blank">https://download.csdn.net/download/sinat_39571186/10417947</a></div>
 
 ## 二、修改代码
 我们将输入值是否与选项匹配的not变量用一个函数myFilter来实现。在下图这个位置改动一下代码，同时添加一个获取选项value的变量id： 
