@@ -41,7 +41,7 @@ layui的select组件自带搜索功能，只要在select标签里面添加属性
 
 <div>码云：<a href="https://gitee.com/onionoo/pinyin.js" target="_blank">https://gitee.com/onionoo/pinyin.js</a></div>
 <div>github：<a href="https://github.com/onionooO/ChineseToPinyinAndInitials" target="_blank">https://github.com/onionooO/ChineseToPinyinAndInitials</a></div>
-<div>CSDN资源：<a href="https://download.csdn.net/download/sinat_39571186/10417956" target="_blank">https://download.csdn.net/download/sinat_39571186/10417956</a></div>
+<div>CSDN资源：全拼：<a href="https://download.csdn.net/download/sinat_39571186/10417956" target="_blank">https://download.csdn.net/download/sinat_39571186/10417956</a></div>
 <div>首字母：<a href="https://download.csdn.net/download/sinat_39571186/10417947" target="_blank">https://download.csdn.net/download/sinat_39571186/10417947</a></div>
 
 ## 二、修改代码
