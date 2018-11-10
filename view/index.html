@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Layui-select-extend</title>
+    <link rel="stylesheet" href="../css/layui.css">
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form class="layui-form" action="" style="margin: 20px;">
+        <div class="layui-inline">
+            <select id="selectList" name="city" lay-filter="filter" lay-verify="required" lay-search="">
+                
+            </select>
+        </div>
+    </form>
+        
+    <ul id="side-menu" class="nav hide">
+        <li class="active"><a href="{url}">订单管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse in" aria-expanded="true" style="">
+                <li><a href="/order/order-summary/goods">商品订单列表</a></li>
+                <li><a href="/order/order-goods-comment/index">APP/零售单评价列表</a></li>
+                <li><a href="/order/order-main/oil-index">机油订单列表</a></li>
+                <li><a href="/other/oil/index">用户机油</a></li>
+                <li><a href="/order/order/index">订单总表</a></li>
+                <li><a href="/order/order-main/recharge-index">充值订单列表</a></li>
+                <li class="active"><a href="/other/ebaoyang-order/index">E保养订单</a></li>
+                <li><a href="/other/ebaoyang/index">E保养总数据</a></li>
+            </ul>
+        </li>
+        <li class=""><a href="{url}">年卡管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                <li><a href="/order/order-main/index">年卡订单列表</a></li>
+                <li><a href="/annual2/annual-card/index">年卡数据列表</a></li>
+                <li><a href="/annual2/annual-card-category/index">年卡分类</a></li>
+                <li><a href="/annual2/annual-card-recommend/index">推荐年卡</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">保障管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/jekun/jekun-protection/index">集群保障列表</a></li>
+                <li><a href="/order/order-summary-jekun-protection/index">用户保障列表</a></li>
+                <li><a href="/airDetection/tvoc/index">TVOC检测管理</a></li>
+                <li><a href="/airDetection/hcho/index">甲醛检测管理</a></li>
+                <li><a href="/order/order-main/scar-protection-index">划痕保订单列表</a></li>
+                <li><a href="/other/scar-protection/index">用户划痕保</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">会员管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/jekun/jekun-user/index">会员列表</a></li>
+                <li><a href="/jekun/jekun-user-vip-log/index">等级记录</a></li>
+                <li><a href="/jekun/jekun-user-address/index">会员地址</a></li>
+                <li><a href="/jekun/jekun-user-weixin/index">微信用户</a></li>
+                <li><a href="/jekun/jekun-user-baidu/index">百度用户</a></li>
+                <li><a href="/unicom/jekun-user-unicom/index">联通用户</a></li>
+                <li><a href="/jekun/jekun-user-car/index">会员汽车</a></li>
+                <li><a href="/jekun/jekun-car-pic/index">会员汽车图片</a></li>
+                <li><a href="/jekun/jekun-user-recharge/index">充值记录</a></li>
+                <li><a href="/cart/cart/index">购物车表</a></li>
+                <li><a href="/jekun/jekun-user-cost/index">消费记录</a></li>
+                <li><a href="/jekun/jekun-user-login/index">登陆日志</a></li>
+                <li><a href="/jekun/jekun-user-amount-log/index">余额记录</a></li>
+                <li><a href="/jekun/jekun-user-first-order/index">用户首单列表</a></li>
+                <li><a href="/jekun/jekun-user-name-log/index">登录名修改记录</a></li>
+                <li><a href="/jekun/jekun-role/index">集群车宝相关角色</a></li>
+                <li><a href="/other/crm-user-project-tracking/index">CRM会员项目跟踪</a></li>
+                <li><a href="/other/crm-project-tracking-count/index">CRM项目跟踪统计</a></li>
+                <li><a href="/other/crm-business-pickup/index">CRM商务接车统计</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">车险管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/other/insurance/index">全部报价列表</a></li>
+                <li><a href="/other/vehicle-insurance-return/index">车险返现</a></li>
+                <li><a href="/insurance/insurance-policy/index">保险赠品</a></li>
+                <li><a href="/insurance/insurance-user-policy-item/index">保险赠品数据</a></li>
+                <li><a href="/insurance/insurance-group/index">保险团购</a></li>
+                <li><a href="/insurance/insurance-group-source/index">保险团购单位</a></li>
+                <li><a href="/insurance/fangwei-vehicle/index">方纬数据</a></li>
+                <li><a href="/insurance/fangwei-vehicle-sample/index">方纬数据（精简）</a></li>
+                <li><a href="/insurance/insurance-recommend/index">推荐方案</a></li>
+                <li><a href="/insurance/insurance-picture-review/index">行驶证审核</a></li>
+                <li><a href="/insurance/insurance-track/index">车险续保提醒</a></li>
+                <li><a href="/insurance/insurance-info/index">上年信息</a></li>
+                <li><a href="/insurance/insurance-callback/index">保单信息回传</a></li>
+                <li><a href="/insurance/insurance-quote-notify-log/index">车险报价推送消息</a></li>
+                <li><a href="/insurance/insurance-captcha/index">图片验证码</a></li>
+                <li><a href="/insurance/insurance-deposit/index">保险定金</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">兼职车险管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/insurance/insurance-agent/index">兼职业务员列表</a></li>
+                <li><a href="/insurance/insurance-agent-type/index">兼职业务员类型</a></li>
+                <li><a href="/insurance/insurance-agent-commission-item/index">佣金记录列表</a></li>
+                <li><a href="/insurance/insurance-agent-withdraw-log/index">提现列表</a></li>
+                <li><a href="/insurance/insurance-car/index">业务员车辆</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">二手车<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/owner/used-car-order/index">交易管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                        <li><a href="/owner/used-car-order/index">预约卖车管理</a></li>
+                        <li><a href="/tester/used-car-check-result/index">初检管理</a></li>
+                        <li><a href="/auctionCar/used-car-auction-car/index">竞价管理</a></li>
+                        <li><a href="/reachCar/used-car-reach-car/index">交车管理</a></li>
+                        <li><a href="/takeCar/used-car-take-car/index">提车管理</a></li>
+                        <li><a href="/transferCar/used-car-transfer-car/index">过户管理</a></li>
+                        <li><a href="/dealer/used-car-dealer-violation/index">违规列表</a></li>
+                        <li><a href="/auction/used-car-auction/index">竞价设置</a></li>
+                    </ul>
+                </li>
+                <li><a href="/tester/used-car-tester/index">检测师管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                        <li><a href="/tester/used-car-tester/index">检测师列表</a></li>
+                        <li><a href="/tester/used-car-check-category/index">检测分类列表</a></li>
+                        <li><a href="/tester/used-car-check-item/index">检测项目列表</a></li>
+                    </ul>
+                </li>
+                <li><a href="/dealer/used-car-dealer/index">车商管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                        <li><a href="/dealer/used-car-dealer/index">商户管理</a></li>
+                        <li><a href="/dealer/used-car-dealer-take-person/index">提车人列表</a></li>
+                        <li><a href="/dealer/used-car-dealer-message/notice">车商通知列表</a></li>
+                        <li><a href="/dealer/used-car-dealer-message/activity">车商活动列表</a></li>
+                    </ul>
+                </li>
+                <li><a href="/marketCooperation/used-car-market/index">营销管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                        <li><a href="/marketCooperation/used-car-market/index">营销合作</a></li>
+                        <li><a href="/raisePrice/used-car-raise-price/index">抬价列表</a></li>
+                    </ul>
+                </li>
+                <li><a href="/auction/used-car-auction/set-price">其他功能<span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level collapse">
+                        <li><a href="/auction/used-car-auction/set-price">价格修正</a></li>
+                        <li><a href="/tester/used-car-check-result/set-check-report">初检评论修改</a></li>
+                        <li><a href="/dealerAuction/used-car-dealer-auction/change-dealer">更换竞价车商</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="{url}">车务管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/other/violation/index">违章查询</a></li>
+                <li><a href="/other/simple-api-log/index">违章查询接口日志</a></li>
+                <li><a href="/other/violation-order/index">违章订单列表</a></li>
+                <li><a href="/other/violation-order-item/index">违章订单明细列表</a></li>
+                <li><a href="/order/order-main/annual-examination-index">年审2.0订单列表</a></li>
+                <li><a href="/annualExamination/annual-examination-track/index">年审到期提醒</a></li>
+                <li><a href="/annualExamination/annual-examination-log/index">年审历史数据</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">道路救援管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/rescue/rescue/index">道路救援订单</a></li>
+                <li><a href="/other/assistance/index">道路救援</a></li>
+                <li><a href="/rescue/rescue-user/user">道路救援人员</a></li>
+                <li><a href="/rescue/rescue-log/index">道路救援日志</a></li>
+                <li><a href="/rescue/rescue-message/index">道路救援消息</a></li>
+                <li><a href="/rescue/rescue-user/index">救援订单人员变更</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">客服管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/customer/customer-conversation/index">咨询列表</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">服务承诺管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/service/service-promise/index">服务承诺</a></li>
+                <li><a href="/service/service-promise-complain-log/index">申请售后日志</a></li>
+                <li><a href="/service/service-promise-push-log/index">红包推送日志</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">服务管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/service/service-category/index">服务分类</a></li>
+                <li><a href="/service/service/index">服务项目</a></li>
+                <li><a href="/service/recommend-category/index">推荐分类管理</a></li>
+                <li><a href="/service/recommend-banner/index">推荐导航管理</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">商品管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/goods/goods/index">商品列表</a></li>
+                <li><a href="/goods/sku/index">商品Sku配置</a></li>
+                <li><a href="/goods/goods-sku/index">商品Sku列表</a></li>
+                <li><a href="/goods/goods-sku-item/index">商品Sku子项列表</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">属性管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/service/category-property/index">服务项目属性</a></li>
+                <li><a href="/goods/goods-property/index">商品属性</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">工位管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/station/station/index">工位配置</a></li>
+                <li><a href="/station/station-apply/index">工位预约</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">消息管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/system/system-activity/index">活动通知列表</a></li>
+                <li><a href="/system/system-push-main/index">推送日志</a></li>
+                <li><a href="/system/system-activity-views/index">活动流量统计</a></li>
+                <li><a href="/system/system-notice/index">系统通知列表</a></li>
+                <li><a href="/news/news/index">新闻资讯</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">帮助中心<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/help/help-category/index">帮助分类</a></li>
+                <li><a href="/help/help-content/index">帮助列表</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">门店管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/jekun/jekun-store/index">门店列表</a></li>
+                <li><a href="/jekun/jekun-store-pic/index">门店图片</a></li>
+                <li><a href="/jekun/jekun-store-staff/index">员工列表</a></li>
+                <li><a href="/jekun/jekun-store-tag/index">标签分类</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">考试管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/exam/exam-question-bank/index">题库列表</a></li>
+                <li><a href="/exam/exam-type/index">考试分类</a></li>
+                <li><a href="/exam/exam-paper/index">考卷列表</a></li>
+                <li><a href="/exam/exam-employee/index">考试记录</a></li>
+                <li><a href="/exam/exam-paper-employee/index">参考员工</a></li>
+                <li><a href="/exam/exam-employee-log/index">员工记录</a></li>
+                <li><a href="/exam/exam-log/index">操作日志</a></li>
+                <li><a href="/exam/exam-paper-employee/count-deduct-wages">统计未考扣工资</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">PC端设置<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/pc/pc-index-configuration/index">首页内容配置</a></li>
+                <li><a href="/pc/pc-menu-configuration/index">首页菜单栏</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">动态配置<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/configuration/index-layout-list/index">首页布局配置</a></li>
+                <li><a href="/configuration/app-advertisement/index">开屏配置</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">banner设置<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/banner/banner-classification/index">banner分类</a></li>
+                <li><a href="/banner/banner-activity/index">banner活动</a></li>
+                <li><a href="/banner/banner/index">banner 2.0</a></li>
+                <li><a href="/banner/banner-image/index">banner图片</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">运费管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/freight/freight-template/index">运费模板</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">费用管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/costManage/cost-manage-charge-unit/index">收费单位</a></li>
+                <li><a href="/costManage/cost-manage-bills/index">费用单</a></li>
+                <li><a href="/costManage/cost-manage-bills/strike-balance">费用冲账数据</a></li>
+                <li><a href="/costManage/cost-manage-strike-balance-detail/index">费用冲账明细</a></li>
+                <li><a href="/costManage/cost-manage-water-electricity-registration/index">门店实用水电量登记</a></li>
+                <li><a href="/costManage/cost-manage-water-electricity-unregistered/index">未登记实用水电量统计</a></li>
+                <li><a href="/costManage/cost-manage-store-warning/index">实用水电量预警</a></li>
+                <li><a href="/costManage/cost-manage-base-warning/index">基地水电预警统计</a></li>
+                <li><a href="/costManage/cost-manage-dorm-warning/index">宿舍水电预警统计</a></li>
+                <li><a href="/costManage/cost-manage-store-real-pay-warning/index">门店实付水电租金预警</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">数据统计<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/data/data-user/day">会员数据</a></li>
+                <li><a href="/data/data-store/day">门店数据</a></li>
+                <li><a href="/data/data-annual-card/day">年卡数据</a></li>
+                <li><a href="/data/data-order/day">订单数据</a></li>
+                <li><a href="/data/data-goods/day">商品数据</a></li>
+                <li><a href="/data/data-package/day">套餐数据</a></li>
+                <li><a href="/data/data-order-category-day/index">分类订单统计</a></li>
+                <li><a href="/data/data-service/day">[按项目]销售数据</a></li>
+                <li><a href="/data/data-category/day">[按分类]销售数据</a></li>
+                <li><a href="/data/data-annual-card-recommend/day">[推荐]年卡数据</a></li>
+                <li><a href="/data/data-user/img">会员统计图</a></li>
+                <li><a href="/data/data-goods/goods-img">商品统计图</a></li>
+                <li><a href="/data/data-package/package-img">套餐统计图</a></li>
+                <li><a href="/data/data-annual-card/card-img">年卡统计图</a></li>
+                <li><a href="/data/data-activity-goods-day/index">活动商品统计</a></li>
+                <li><a href="/data/data-abnormal-goods/safety-stock">异常商品</a></li>
+                <li><a href="/data/data-ground-push/day">地推数据统计</a></li>
+                <li><a href="/data/data-user-app-statis/index">APP用户统计</a></li>
+                <li><a href="/data/data-user-order-summary-annual/index">会员订单年度统计</a></li>
+                <li><a href="/data/location-count-order/index">订单位置统计</a></li>
+                <li><a href="/data/location-count-user/index">用户位置统计</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">[新] 数据统计<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/data/data-goods-order-goods-from/index">订单数据</a></li>
+                <li><a href="/data/data-user-visit/index">会员数据</a></li>
+                <li><a href="/data/data-oil-order-day/index">机油活动</a></li>
+                <li><a href="/data/count-bad-comment-daily/index">每日差评处理超时统计</a></li>
+                <li><a href="/data/count-failed-order-daily/index">每日订单同步失败统计</a></li>
+                <li><a href="/data/count-rescue-daily/index">每日救援处理超时统计</a></li>
+                <li><a href="/data/data-weixin-user-leave/index">微信用户分类数据统计</a></li>
+                <li><a href="/data/data-jekun-user-leave/index">流失用户数据统计</a></li>
+                <li><a href="/data/data-coupon-expire-push/index">兑换券到期数据统计</a></li>
+                <li><a href="/data/crm-tracking-punish-remaind/index">CRM跟踪处罚提醒统计</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">次数设置<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/jekun/jekun-user-activity/user-index">免费洗车</a></li>
+                <li><a href="/promotion/package-use-times/index">套餐可用次数</a></li>
+                <li><a href="/promotion/goods-use-times/index">商品可买次数</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">活动管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/activity/activity-goods/index">活动商品 </a></li>
+                <li><a href="/activity/activity-package/index">活动套餐</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">0元购管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/activity/activity-zero-buy/index">0元购</a></li>
+                <li><a href="/activity/activity-zero-buy-share-img/index">0元购海报分享</a></li>
+                <li><a href="/activity/activity-zero-buy-user/index">0元购用户数据</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">拼团管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/activity/activity-group-buy/index">拼团</a></li>
+                <li><a href="/activity/activity-group-buy-user/index">拼团用户数据</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">招募合伙人<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/activity/activity-recruit-partner-user/index">合伙人</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">营销中心<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/marketingCenter/full-reduction-category/index">满减/送</a></li>
+                <li><a href="/marketingCenter/full-reduction-log/index">满减/送日志</a></li>
+                <li><a href="/promotion/promotion-scare/index">抢购活动</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">[推广] 通用活动<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/market/lottery/index">有奖活动</a></li>
+                <li><a href="/promotion/promotion-ask/index">问答活动</a></li>
+                <li><a href="/promotion/promotion-question/index">问答题目</a></li>
+                <li><a href="/topic/topic-store/index">门店专题</a></li>
+                <li><a href="/market/recommend-item/index">推荐有奖</a></li>
+                <li><a href="/market/annual-lottery/index">抽奖活动</a></li>
+                <li><a href="/promotion/promotion-merchant/index">招商活动</a></li>
+                <li><a href="/promotion/promotion-store-scan/index">门店扫码推广</a></li>
+                <li><a href="/promotion/promotion-guess/index">竞猜活动</a></li>
+                <li><a href="/promotion/promotion-sale/index">促销活动</a></li>
+                <li><a href="/other/weixin-share/index">微信分享</a></li>
+                <li><a href="/promotion/promotion-questionnaire-category/index">调研问卷分类</a></li>
+                <li><a href="/promotion/promotion-questionnaire-result/index">调研问卷列表</a></li>
+                <li><a href="/promotion/promotion-invite/index">邀请信息列表</a></li>
+                <li><a href="/promotion/free-oil-poster/index">机油免费海报</a></li>
+                <li><a href="/promotion/sharing-reward-oil/index">用户分享送机油</a></li>
+                <li><a href="/promotion/sharing-reward-oil-receive/index">分享送机油领奖</a></li>
+                <li><a href="/other/car-insurance-activity/index">车险活动数据</a></li>
+                <li><a href="/other/car-insurance-activity-recommend/index">车险活动推荐列表</a></li>
+                <li><a href="/other/car-insurance-activity-log/index">车险活动日志</a></li>
+                <li><a href="/promotion/promotion-apply/index">通用活动报名</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">[推广] 活动<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/promotion/screenshot-review/index">分享激活红包</a></li>
+                <li><a href="/promotion/promotion-world-cup/index">世界杯</a></li>
+                <li><a href="/promotion/tp-wiper/index">2元雨刮活动</a></li>
+                <li><a href="/promotion/tp-mat/index">0.1元防滑垫活动</a></li>
+                <li><a href="/promotion/tp-charger/index">2元充电器活动</a></li>
+                <li><a href="/promotion/tp-wiper-six/index">6元雨刮活动</a></li>
+                <li><a href="/promotion/tp-water-treasure/index">水箱宝活动</a></li>
+                <li><a href="/other/night-ticket/index">车险夜市-门店入场券</a></li>
+                <li><a href="/other/night-ticket-item/index">车险夜市-领券数据</a></li>
+                <li><a href="/other/night-ticket-item/index2">车险兄弟</a></li>
+                <li><a href="/other/night-ticket-item/index3">中秋夜市-领券数据</a></li>
+                <li><a href="/other/night-ticket/index3">中秋夜市</a></li>
+                <li><a href="/other/night-ticket-item/index4">国庆夜市-领券数据</a></li>
+                <li><a href="/other/night-ticket/index4">国庆夜市</a></li>
+                <li><a href="/other/insurance-tame-fight/index">v5车险风暴</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">[推广] 合作营销<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/market/free-wash-import/index">免费洗车导入</a></li>
+                <li><a href="/promotion/promotion-unicom-mobile/index">联通号码包</a></li>
+                <li><a href="/promotion/promotion-exchange-mobile/mama">妈妈网合作</a></li>
+                <li><a href="/promotion/promotion-uber-mobile/index">Uber合作</a></li>
+                <li><a href="/promotion/promotion-echexian-mobile/index">e车险</a></li>
+                <li><a href="/other/partner/index">合作方列表</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">汽车管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/car/car-brand/index">品牌管理</a></li>
+                <li><a href="/car/car-producer/index">厂商管理</a></li>
+                <li><a href="/car/car-serie/index">车系管理</a></li>
+                <li><a href="/car/car-model-item/list">车型管理</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">数据中心<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/dataCenter/data-center-qccxpz/index">汽车车型配置</a></li>
+                <li><a href="/dataCenter/data-center-cxpjppgz/index">车型配件匹配规则</a></li>
+                <li><a href="/dataCenter/data-center-byzq/index">保养周期</a></li>
+                <li><a href="/dataCenter/data-center-byyh-jpgz/index">保养养护-精品改装[废]</a></li>
+                <li><a href="/dataCenter/data-center-boutique-refit/index">保养养护-精品改装[v2]</a></li>
+                <li><a href="/dataCenter/data-center-pjmc/index">配件名称</a></li>
+                <li><a href="/dataCenter/data-center-match-statis/index">数据匹配统计</a></li>
+                <li><a href="/dataCenter/data-center-match/index">车型配件匹配查询</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">其他功能<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/other/error-report/index">APP错误信息收集</a></li>
+                <li><a href="/other/app-opinion/index">APP反馈</a></li>
+                <li><a href="/other/sms-msg/index">短信管理</a></li>
+                <li><a href="/other/sms-market-msg/index">营销短信管理</a></li>
+                <li><a href="/other/sms-msg-mass/index">短信群发</a></li>
+                <li><a href="/other/erp-old-user/index">自由风用户</a></li>
+                <li><a href="/other/erp-user/index">ERP用户</a></li>
+                <li><a href="/other/temp-user-amount/index">ERP用户消费总额</a></li>
+                <li><a href="/other/insurance-user/index">ERP保险数据</a></li>
+                <li><a href="/other/keyword/index">关键字列表</a></li>
+                <li><a href="/area/area-province/index">地区列表</a></li>
+                <li><a href="/other/ground-push/list">地推会员列表</a></li>
+                <li><a href="/other/ground-push/index">地推会员数据</a></li>
+                <li><a href="/other/image-upload/index">图片上传</a></li>
+                <li><a href="/other/acc-pdk-relation/index">PDK波箱油列表</a></li>
+                <li><a href="/other/vin/index">力洋VIN查询</a></li>
+                <li><a href="/other/etcp/writeoff">Etcp核销码查询</a></li>
+                <li><a href="/other/liyang-vin-api-log/index">力洋接口调用日志</a></li>
+                <li><a href="/other/liyang-vin-log/index">力洋车型匹配选择日志</a></li>
+                <li><a href="/other/count/index">统计</a></li>
+                <li><a href="/search/search-index/index">索引管理</a></li>
+                <li><a href="/other/api-monitor/index">API监控</a></li>
+                <li><a href="/other/recharge-option/index">充值选项</a></li>
+                <li><a href="/other/rabbitmq-producer-log/index">RabbitMQ日志（生产者）</a></li>
+                <li><a href="/other/rabbitmq-consumer-log/index">RabbitMQ日志（消费者）</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">卡劵<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/order/coupon/index">卡劵</a></li>
+                <li><a href="/order/coupon-item/index">卡劵数据</a></li>
+                <li><a href="/other/third-party-coupon-gift/index">第三方赠品</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">红包<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/redPacket/red-packet/index">红包</a></li>
+                <li><a href="/redPacket/red-packet-item/index">红包数据</a></li>
+                <li><a href="/redPacket/red-packet-item-user/index">会员红包数据</a></li>
+                <li><a href="/redPacket/red-packet-item-use/index">会员红包使用记录</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">保养助手<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/maintain/maintain-category/index">保养分类</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">保养助手v2<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/maintain2/maintain-category/index">保养分类</a></li>
+                <li><a href="/maintain2/maintain-project/index">保养项目</a></li>
+                <li><a href="/maintain2/maintain-feedback/index">无匹配数据反馈</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">金力ERP<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/jlerp/jlerp-user/index">ERP会员列表</a></li>
+                <li><a href="/jlerp/jlerp-user-car/index">ERP会员汽车</a></li>
+                <li><a href="/jlerp/jlerp-account-balance/index">ERP会员余额</a></li>
+                <li><a href="/jlerp/jlerp-recharge-log/index">ERP充值记录</a></li>
+                <li><a href="/jlerp/jlerp-consumption/index">ERP消费记录</a></li>
+                <li><a href="/jlerp/jlerp-staff/index">ERP系统人员</a></li>
+                <li><a href="/jlerp/jlerp-department/index">ERP部门列表</a></li>
+                <li><a href="/jlerp/jlerp-warehouse/index">ERP仓库列表</a></li>
+                <li><a href="/jlerp/jlerp-department-warehouse/index">ERP部门仓库</a></li>
+                <li><a href="/jlerp/jlerp-category/index">ERP商品分类</a></li>
+                <li><a href="/jlerp/jlerp-goods/index">ERP商品列表</a></li>
+                <li><a href="/jlerp/jlerp-combination-goods/index">ERP组合商品</a></li>
+                <li><a href="/jlerp/jlerp-retail-order/index">ERP零售单表</a></li>
+                <li><a href="/jlerp/jlerp-service-order/index">ERP服务单表</a></li>
+                <li><a href="/jlerp/jlerp-pay-method/index">ERP收款方式</a></li>
+                <li><a href="/jlerp/jlerp-api-log/index">接口调用日志</a></li>
+            </ul>
+        </li>
+        <li class=""><a href="{url}">猿猿ERP<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                <li><a href="/yyerp/yyerp-user/index">会员信息</a></li>
+                <li><a href="/yyerp/yyerp-user-type/index">会员类型</a></li>
+                <li><a href="/yyerp/yyerp-user-level/index">会员等级</a></li>
+                <li><a href="/yyerp/yyerp-user-car-info/index">会员汽车信息</a></li>
+                <li><a href="/yyerp/yyerp-user-balance-detail/index">会员储值明细账</a></li>
+                <li><a href="/yyerp/yyerp-user-cashback-detail/index">会员返现明细账</a></li>
+                <li><a href="/yyerp/yyerp-user-voucher/index">会员兑换券</a></li>
+                <li><a href="/yyerp/yyerp-company-info/index">公司信息</a></li>
+                <li><a href="/yyerp/yyerp-store-info/index">门店信息</a></li>
+                <li><a href="/yyerp/yyerp-store-traffic/index">门店车流统计</a></li>
+                <li><a href="/yyerp/yyerp-employee-info/index">人员信息</a></li>
+                <li><a href="/yyerp/yyerp-warehouse-info/index">仓库信息</a></li>
+                <li><a href="/yyerp/yyerp-payment-method/index">收款方式</a></li>
+                <li><a href="/yyerp/yyerp-promotion-type/index">促销方式</a></li>
+                <li><a href="/yyerp/yyerp-category-info/index">品类信息</a></li>
+                <li><a href="/yyerp/yyerp-service-sort/index">服务分类</a></li>
+                <li><a href="/yyerp/yyerp-goods-info/index">商品信息</a></li>
+                <li><a href="/yyerp/yyerp-oversold-goods/index">超卖库存商品</a></li>
+                <li><a href="/yyerp/yyerp-goods-group/index">商品组信息</a></li>
+                <li><a href="/yyerp/yyerp-combination-goods/index">组合商品信息</a></li>
+                <li><a href="/yyerp/yyerp-combination-goods-price/index">组合商品价格</a></li>
+                <li><a href="/yyerp/yyerp-goods-price/index">商品价格</a></li>
+                <li><a href="/yyerp/yyerp-goods-price-list/index">商品价格列表</a></li>
+                <li><a href="/yyerp/yyerp-goods-inventory/index">商品库存信息</a></li>
+                <li><a href="/yyerp/yyerp-goods-inventory-detail/index">商品库存明细账</a></li>
+                <li><a href="/yyerp/yyerp-vehicle-model-info/index">车型数据</a></li>
+                <li><a href="/yyerp/yyerp-goods-voucher/index">商品兑换券</a></li>
+                <li><a href="/yyerp/yyerp-sku-voucher-map/index">商品兑换券对照</a></li>
+                <li><a href="/yyerp/yyerp-vehicle-service-level/index">车型服务等级</a></li>
+                <li><a href="/yyerp/yyerp-service-level-factor/index">服务等级系数</a></li>
+                <li><a href="/yyerp/yyerp-service-level-price/index">服务等级价格</a></li>
+                <li><a href="/yyerp/yyerp-user-type-discount/index">会员类型折扣</a></li>
+                <li><a href="/yyerp/yyerp-user-level-discount/index">会员等级折扣</a></li>
+                <li><a href="/yyerp/yyerp-sales-order-details/index">销售订单明细</a></li>
+                <li><a href="/yyerp/yyerp-customer-complaint/index">客诉信息</a></li>
+                <li><a href="/yyerp/yyerp-customer-complaint-v2/index">新版客诉信息</a></li>
+                <li><a href="/yyerp/yyerp-report-tracking/index">报案信息</a></li>
+                <li><a href="/yyerp/yyerp-report-tracking-feedback-info/index">报案跟踪反馈信息</a></li>
+                <li><a href="/yyerp/yyerp-unservice-project/index">未服务项目</a></li>
+                <li><a href="/yyerp/yyerp-unservice-order/index">未服务订单</a></li>
+                <li><a href="/yyerp/yyerp-goods-time-consume/index">商品耗时</a></li>
+                <li><a href="/yyerp/yyerp-service-worksheet/index">服务工单</a></li>
+                <li><a href="/yyerp/yyerp-service-station/index">服务工位</a></li>
+                <li><a href="/yyerp/yyerp-store-month-sale/index">门店月销售数据</a></li>
+                <li><a href="/yyerp/yyerp-day-sale-statis/index">日销售统计</a></li>
+                <li><a href="/yyerp/yyerp-spray-goods-part-transform/index">钣喷商品部位对照</a></li>
+                <li><a href="/yyerp/yyerp-sales-group/index">销售组</a></li>
+                <li><a href="/yyerp/yyerp-sector-info/index">部门信息</a></li>
+                <li><a href="/yyerp/yyerp-delivery-area/index">DC配送区域</a></li>
+                <li><a href="/yyerp/yyerp-greet-order/index">交接车单</a></li>
+                <li><a href="/yyerp/yyerp-cooperation-type/index">合作类型</a></li>
+                <li><a href="/yyerp/yyerp-employee-store-role/index">角色关联门店表</a></li>
+                <li><a href="/yyerp/yyerp-quality/index">质保数据</a></li>
+                <li><a href="/yyerp/yyerp-quality-goods-warranty/index">商品质保期数据</a></li>
+                <li><a href="/yyerp/yyerp-api-log/index">接口调用日志</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">猿猿ERP商品特性<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/yyerp/yyerp-cushion-goods-attribute/index">坐垫商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-explosion-proof-film-goods-attribute/index">防爆膜商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-foot-pad-goods-attribute/index">脚垫商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-modified-seats-goods-attribute/index">改装真皮座椅商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-modified-tail-goods-attribute/index">改装尾翼商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-steering-wheel-goods-attribute/index">方向盘套商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-tire-goods-attribute/index">轮胎商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-wiper-goods-attribute/index">雨刮片商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-light-goods-attribute/index">车灯商品信息特性</a></li>
+                <li><a href="/yyerp/yyerp-tire-safety-lock-attribute/index">爆胎安全锁特性</a></li>
+                <li><a href="/yyerp/yyerp-car-sticker-attribute/index">车贴隐形车衣特性</a></li>
+                <li><a href="/yyerp/yyerp-battery-attribute/index">蓄电池商品信息特性</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">猿猿ERP对接APP管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/yyerpJekun/yyerp-jekun-user/index">会员绑定</a></li>
+                <li><a href="/yyerpJekun/yyerp-jekun-user-car-log/index">会员汽车对接</a></li>
+                <li><a href="/yyerpJekun/yyerp-jekun-user-log/index">会员绑定记录</a></li>
+                <li><a href="/yyerpJekun/yyerp-jekun-order/index">订单对接</a></li>
+                <li><a href="/yyerpJekun/yyerp-jekun-log/index">对接操作日志</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">微信管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/wechat/wechat-subscribe-config/index">关注回复配置</a></li>
+                <li><a href="/wechat/wechat-response-config/index">二维码回复配置</a></li>
+                <li><a href="/wechat/wechat-keyword-config/index">关键字回复配置</a></li>
+                <li><a href="/wechat/wechat-api-log/index">微信调用日志</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">第三方对接<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/thirdParty/third-party-goods/index">商品配置</a></li>
+                <li><a href="/thirdParty/third-party-user/index">第三方用户</a></li>
+                <li><a href="/thirdParty/third-party-order/index">订单对接记录</a></li>
+                <li><a href="/thirdParty/third-party-api-log/index">接口调用日志</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">黑盒后台跳转<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/other/crm-location/index">跳转黑盒</a></li>
+            </ul>
+        </li>
+        <li><a href="{url}">系统管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+                <li><a href="/admin/admin-user/index">用户列表</a></li>
+                <li><a href="/admin/mine/password">密码修改</a></li>
+                <li><a href="/admin/config/verify">生成验证码</a></li>
+                <li><a href="/admin/admin-privilege/index">权限设置</a></li>
+                <li><a href="/admin/admin-role/index">角色设置</a></li>
+                <li><a href="/admin/config/site">站点配置</a></li>
+                <li><a href="/admin/config/insurance">保险配置</a></li>
+                <li><a href="/admin/config/insurance-renew">保险续保配置</a></li>
+                <li><a href="/admin/config/insurance-policy-seven">保险镀晶预定配置</a></li>
+                <li><a href="/system/extapi-user/index">第三方接口授权</a></li>
+                <li><a href="/develop/job-failure/index">失败任务</a></li>
+                <li><a href="/admin/backend-log/index">操作日志</a></li>
+            </ul>
+        </li>
+    </ul>  
+    
+    <script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="../js/layui.js"></script>
+    <script type="text/javascript" src="../js/initials.js"></script>
+    <script type="text/javascript" src="../js/pinyin.js"></script>
+    <script>
+        $(function(){
+            // 使用form模块组件
+            layui.use('form', function(){
+                var form = layui.form;
+                
+                // $(document.body).append('<iframe src="http://10.2.4.156:8081/Layui-select-extend/view/" width="100%" height="100%" noborder="0"></iframe>')
+
+                //0 为测试站 1为正式站 by：仅为测试
+                //var runtime = (state)=> state === 0 ? 'http://test.admin.jekunauto.com/' : 'http://jkadmin.jekunauto.com/';
+
+                // 监听select选择
+                form.on('select(filter)', function(data){
+                    //console.log(data.elem); //获得DOM对象
+                    //console.log(data.othis); //获得jQuery对象
+                    //console.log(data.value); //获得被选中的值
+                    if(data.value == '' || data.value == null){
+                        console.log('this value is null');
+                        return false;
+                    }else{
+                        // console.log(runtime(0));
+                        // window.location.href = runtime(0) + data.value;
+                        window.location.href = data.value;
+                    }
+                });
+            });
+
+            CreateMenu();
+
+            // 创建所有菜单元素
+            function CreateMenu() {
+                var allMenu = $("#side-menu>li>ul>li>a");
+                var html = '';
+                allMenu.each(function(i,n){
+                    if(i === 0) html += '<option value="" placeholder="请输入关键词搜索">请输入关键词搜索</option>';
+                    html += '<option value="'+$(this).attr('href')+'">'+$(this).text()+'</option>';
+                })
+                $("#selectList").html(html);
+            }
+        })
+    </script>
+</body>
+</html>
