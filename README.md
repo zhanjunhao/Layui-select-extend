@@ -1,7 +1,5 @@
 # Layui-select 下拉框实现拼音全拼匹配/首字母模糊搜索
 
-版权声明：本文为博主原创文章，未经博主允许不得转载。https://blog.csdn.net/sinat_39571186/article/details/80275578
-
 ## Layui
 layui（谐音：类UI) 是一款采用自身模块规范编写的前端 UI 框架。亲测很好用，很好看。 
 </br>
